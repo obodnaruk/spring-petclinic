@@ -36,6 +36,19 @@ dependencies {
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-test {
-  useJUnitPlatform()
+tasks.register("testresults") {
+  dependsOn("build")
+  doLast {
+    String path =  project.projectDir.toString() + "/build/reports/tests/test" + "/index.html"
+    String url = "file:///" + path.replace("\\","/").replace(" ","%20")
+    println "Reports file location " + path
+    File f = new File(path)
+    if(f.exists()){
+        java.awt.Desktop.desktop.browse url.toURI()
+    }
+    else{
+        println "Error opening tests report! Can not find reports file!"
+    }
+    println "--------------------------------------------------"
+  }
 }
