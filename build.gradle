@@ -49,6 +49,5 @@ tasks.register("testresults") {
     else{
         println "Error opening tests report! Can not find reports file!"
     }
-    println "--------------------------------------------------"
   }
 }
