@@ -1,6 +1,12 @@
-node {
-    stage('Pull the file off Nexus') {
+pipeline {
+  agent { label 'macos' }
+  stages {
+    stage ('Build') {
+      steps {
         withCredentials([usernameColonPassword(credentialsId: 'nexus', variable: 'NEXUS_CREDENTIALS')]) {
             sh script: 'curl -u ${NEXUS_CREDENTIALS} -o your_file.png "http://localhost:8081/nexus/service/local/repositories/snapshots/content/org/springframework/samples/spring-petclinic/3.0.1-SNAPSHOT/spring-petclinic-3.0.1-20220630.135755-1.jar"'
         }
+      }
     }
+  }
+}
