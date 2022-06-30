@@ -5,10 +5,10 @@ pipeline {
   // }
   stages {
     stage ('Build') {
-      def mvn_version = 'M3'
-      withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-        echo 'Running build automation'
-        sh "${mvnHome}/bin/mvn clean package"
+      step {
+        withMaven {
+          sh "mvn clean verify"
+        }
       }
     }
   }
