@@ -8,6 +8,7 @@ pipeline {
       steps {
         withMaven {
           sh "mvn package -DskipTests"
+          sh "mvn deploy -DskipTests"
         }
       }
     }
