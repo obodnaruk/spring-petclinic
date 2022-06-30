@@ -5,10 +5,10 @@ pipeline {
   // }
   stages {
     stage ('Build') {
-      def mvnHome = tool 'M3'
       steps {
+        mvnHome = tool 'M3'
         echo 'Running build automation'
-        sh 'mvn clean package'
+        sh "${mvnHome}/bin/mvn clean package"
       }
     }
   }
