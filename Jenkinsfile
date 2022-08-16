@@ -1,7 +1,7 @@
 pipeline {
   agent { label 'main' }
   tools {
-    maven 'maven-3.8.6' 
+    maven 'M3' 
   }
   stages {
     stage ('Build') {
