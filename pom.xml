@@ -307,7 +307,7 @@
   <distributionManagement>
     <snapshotRepository>
       <id>nexus-snapshots</id>
-      <url>http://104.154.130.32:8081/nexus/content/repositories/snapshots</url>
+      <url>http://104.154.130.32:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 
