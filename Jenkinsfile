@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'macos' }
+  agent { label 'any' }
   // tools {
   //   maven 'maven-3.8.6' 
   // }
