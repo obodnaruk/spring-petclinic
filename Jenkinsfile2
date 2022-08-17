@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage ('Deploy petlinic') {
       steps {
-        ansible-playbook -i hostapp app.yml --extra-vars "sql_db_name=${DB_NAME} sql_db_user=${DB_USER} sql_db_password=${DB_PASSWORD} sql_port=${DB_PORT} sql_host=${DB_HOST}"
+        sh 'ansible-playbook -i hostapp app.yml --extra-vars "sql_db_name=${DB_NAME} sql_db_user=${DB_USER} sql_db_password=${DB_PASSWORD} sql_port=${DB_PORT} sql_host=${DB_HOST}"'
       }
     }
   }
