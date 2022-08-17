@@ -1,12 +1,9 @@
 pipeline {
-  agent { label 'macos' }
+  agent { label 'main' }
   stages {
-    stage ('Build') {
+    stage ('Deploy petlinic') {
       steps {
-        withCredentials([usernameColonPassword(credentialsId: 'nexus', variable: 'NEXUS_CREDENTIALS')]) {
-            sh script: 'curl -u ${NEXUS_CREDENTIALS} -o petclinic.jar "http://localhost:8081/nexus/service/local/repositories/snapshots/content/org/springframework/samples/spring-petclinic/3.0.1-SNAPSHOT/spring-petclinic-3.0.1-20220630.135755-1.jar"'
-            sh script: "java -jar petclinic.jar"
-        }
+        ansible-playbook -i hostapp app.yml --extra-vars "sql_db_name=${DB_NAME} sql_db_user=${DB_USER} sql_db_password=${DB_PASSWORD} sql_port=${DB_PORT} sql_host=${DB_HOST}"
       }
     }
   }
