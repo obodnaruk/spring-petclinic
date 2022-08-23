@@ -188,7 +188,7 @@
         </executions>
         <configuration>
             <serverId>nexus</serverId>
-            <nexusUrl>http://104.154.130.32:8081/nexus/</nexusUrl>
+            <nexusUrl>http://NEXUS_HOST:8081/nexus/</nexusUrl>
             <skipStaging>true</skipStaging>
         </configuration>
       </plugin>
@@ -307,7 +307,7 @@
   <distributionManagement>
     <snapshotRepository>
       <id>nexus-snapshots</id>
-      <url>http://104.154.130.32:8081/repository/maven-snapshots/</url>
+      <url>http://NEXUS_HOST:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 

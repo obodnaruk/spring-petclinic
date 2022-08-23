@@ -13,6 +13,7 @@ pipeline {
     }
     stage ('Deploy') {
       steps {
+        sh 'sed -i "s/NEXUS_IP/$NEXUS_HOST/g" "pom.xml"'
         withMaven {
           sh "mvn deploy -DskipTests"
         }
